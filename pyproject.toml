@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "credit-impot-domicile"
+version = "0.1.0"
+description = "Crédit d'impôt pour l'emploi d'un salarié à domicile : plafonds, majorations et montant"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Théo Pasquier" }]
+keywords = ["crédit d'impôt", "emploi à domicile", "services à la personne", "CESU", "impôt sur le revenu", "France"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: French",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+credit-impot-domicile = "credit_impot_domicile.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/TheoPSR01/credit-impot-domicile"
+Issues = "https://github.com/TheoPSR01/credit-impot-domicile/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/credit_impot_domicile"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
